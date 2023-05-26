@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const _ = require("lodash");
 
 const app = express();
 
@@ -9,8 +10,6 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static("public"));
-
-app.use(express.json());
 
 main().catch(err => console.log(err));
 
@@ -54,16 +53,21 @@ async function main() {
                     response.redirect("/");
                 });
             } else {
-                response.render("list", {listTitle: "Today", newListItems: foundItems});
+                response.render(
+                    "list", 
+                    {
+                        listTitle: "Today", newListItems: foundItems
+                    }
+                );
             }
         });
         
     });
 
 
-    app.get("/:customListName", function(req, res){
+    app.get("/:customListName", async function(req, res){
 
-        const customListName = req.params.customListName;
+        const customListName = _.capitalize(req.params.customListName);
 
         const requestedUrl = req.originalUrl;
         
@@ -73,15 +77,15 @@ async function main() {
         }
         
 
-        List.findOne({name: customListName}).then(function(foundList){
+        List.findOne({name: customListName}).then(async function(foundList){
 
-            if(!foundList){ //Create a new List
+            if(!foundList){ 
                 const list = new List({
                     name: customListName,
                     listItems: []
                 });
 
-                list.save();
+                await list.save();
                 res.redirect("/" + customListName);
             }
             else{                
@@ -105,32 +109,33 @@ async function main() {
         });
       
         if (listName === "Today"){
-            item.save();
+            await item.save();
             res.redirect("/");
         } else {
-            List.findOne({name: listName}).then(function(foundList){
-                foundList.listItems.push(item);
-                foundList.save();
+            List.findOne({name: listName}).then(async function(foundList){
+                await foundList.listItems.push(item);
+                await foundList.save();
                 res.redirect("/" + listName);
             });
         }
     });
 
-    app.post("/delete", function(req, res){
+    app.post("/delete", async function(req, res){
         const checkedItemId = req.body.checkbox;
         const listName = req.body.listName;
 
         if(listName === "Today"){
-            Item.findByIdAndRemove(checkedItemId).then(function(){
+            await Item.findByIdAndRemove(checkedItemId).then(function(){
                 console.log("Successfully deleted checked Item.");
                 res.redirect("/");
             });
         } else {
-            List.findOneAndUpdate(
+            await List.findOneAndUpdate(
                 { name: listName },
-                { $pull : { listItems: { _id: checkedItemId } } }).then(function(){
-                    res.redirect("/" + listName);
-                });
+                { $pull : { listItems: { _id: checkedItemId } } }
+            ).then(function(){
+                res.redirect("/" + listName);
+            });
         }
     });
       
