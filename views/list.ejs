@@ -14,13 +14,12 @@
                 <input type="hidden" name="listName" value="<%= listTitle %>">
             </form>
         <% }); %>
-
-        
                     
-        <form class="item" action="/<%= route %>" method="post">
-            <input type="text" name="newItem" placeholder="New Item" autocomplete="off"><br>
-            <button type="submit" name="list" value="<%= route%>">+</button>
+        <form class="item" action="/" method="post">
+          <input type="text" name="newItem" placeholder="New Item" autocomplete="off"><br>
+          <button type="submit" name="list" value="<%= listTitle %>">+</button>
         </form>
+      
     </div>
 
-<%- include("footer") -%>
+<%- include("footer") -%> 
