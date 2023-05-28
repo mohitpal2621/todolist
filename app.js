@@ -48,18 +48,18 @@ async function main() {
     app.get("/", function(request, response){
         
         Item.find({}).then(function(foundItems){
-            if(foundItems.length === 0){
-                Item.insertMany(defaultItems).then(function(){
-                    response.redirect("/");
-                });
-            } else {
+            // if(foundItems.length === 0){
+            //     Item.insertMany(defaultItems).then(function(){
+            //         response.redirect("/");
+            //     });
+            // } else {
                 response.render(
                     "list", 
                     {
                         listTitle: "Today", newListItems: foundItems
                     }
                 );
-            }
+            // }
         });
         
     });
