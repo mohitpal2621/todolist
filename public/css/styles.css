@@ -1,12 +1,11 @@
 html {
-  background-color: hsl(228, 86%, 94%);
-  background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+  background: linear-gradient(45deg, #A683E3, #E4E9FD);
   min-height: 100%;
   font-family: 'helvetica neue';
   position: relative;
 }
 
-body{
+body {
   margin: 0;
   padding-bottom: 80px;
 }
@@ -16,7 +15,7 @@ h1 {
   padding: 10px;
 }
 
-h2{
+h2 {
   color: #fff;
   padding: 10px;
 }
@@ -30,8 +29,9 @@ h2{
 }
 
 #heading {
-  background-color: #A683E3;
+  background: linear-gradient(to right, #A683E3, #D3C4F0);
   text-align: center;
+  color: #fff;
 }
 
 .item {
@@ -39,19 +39,52 @@ h2{
   display: flex;
   align-items: center;
   border-bottom: 1px solid #F1F1F1;
+  transition: border-color 0.3s ease;
 }
 
 .item:last-child {
-  border-bottom: 0;
+  border-bottom: none;
 }
 
-input:checked+p {
+input:checked + p {
   text-decoration: line-through;
   text-decoration-color: #A683E3;
+  color: #777;
+  opacity: 0.6;
+  animation-name: fadeOut;
+  animation-duration: 2s; /* Adjust the duration as needed */
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
 }
 
 input[type="checkbox"] {
   margin: 20px;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #A683E3;
+  border-radius: 50%;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input[type="checkbox"]:checked {
+  border-color: #A683E3;
+  background-color: #A683E3;
 }
 
 p {
@@ -59,7 +92,9 @@ p {
   padding: 20px;
   font-size: 20px;
   font-weight: 200;
-  color: #00204a;
+  color: #042d62;
+  font-family: 'Helvetica Neue', sans-serif;
+  transition: color 0.3s ease;
 }
 
 form.item {
@@ -72,12 +107,17 @@ button {
   width: 50px;
   border-radius: 50%;
   border-color: transparent;
-  background-color: #A683E3;
+  background: linear-gradient(to right, #A683E3, #D3C4F0);
   color: #fff;
   font-size: 30px;
   padding-bottom: 6px;
   border-width: 0;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 
 input[type="text"] {
@@ -109,8 +149,9 @@ footer {
   bottom: 0;
   height: 80px;
   width: 100%;
+  padding-bottom: 15px;
 }
 
-.about{
+.about {
   text-align: center;
 }
