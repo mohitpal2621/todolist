@@ -34,6 +34,13 @@ h2 {
   color: #fff;
 }
 
+/* Add minimal animation on hovering the headings div */
+#heading:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+
 .item {
   min-height: 70px;
   display: flex;
@@ -131,6 +138,28 @@ input[type="text"] {
   width: 313px;
 }
 
+input[type="text"]:hover {
+  animation-name: shake;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 input[type="text"]:focus {
   outline: none;
   box-shadow: inset 0 -3px 0 0 #A683E3;
@@ -150,6 +179,7 @@ footer {
   height: 80px;
   width: 100%;
   padding-bottom: 15px;
+  opacity: 0.6;
 }
 
 .about {
