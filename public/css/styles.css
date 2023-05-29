@@ -87,7 +87,30 @@ input[type="checkbox"] {
   border-radius: 50%;
   outline: none;
   transition: border-color 0.3s ease;
+  position: relative;
 }
+
+/* Add animation on hovering the checkboxes */
+input[type="checkbox"]:hover {
+  animation-name: pop;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
 
 input[type="checkbox"]:checked {
   border-color: #A683E3;
@@ -142,7 +165,11 @@ input[type="text"]:hover {
   animation-name: shake;
   animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1; /* Set the animation to run only once */
+}
+
+input[type="text"]:focus {
+  animation: none; /* Disable the animation when the input is focused */
 }
 
 @keyframes shake {
@@ -159,6 +186,7 @@ input[type="text"]:hover {
     transform: translateX(0);
   }
 }
+
 
 input[type="text"]:focus {
   outline: none;
