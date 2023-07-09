@@ -34,12 +34,10 @@ h2 {
   color: #fff;
 }
 
-
 #heading:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease;
 }
-
 
 .item {
   min-height: 70px;
@@ -59,7 +57,7 @@ input:checked + p {
   color: #777;
   opacity: 0.6;
   animation-name: fadeOut;
-  animation-duration: 2s; 
+  animation-duration: 2s;
   animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
@@ -90,7 +88,6 @@ input[type="checkbox"] {
   position: relative;
 }
 
-
 input[type="checkbox"]:hover {
   animation-name: pop;
   animation-duration: 0.3s;
@@ -109,8 +106,6 @@ input[type="checkbox"]:hover {
     transform: scale(1);
   }
 }
-
-
 
 input[type="checkbox"]:checked {
   border-color: #A683E3;
@@ -165,11 +160,11 @@ input[type="text"]:hover {
   animation-name: shake;
   animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
-  animation-iteration-count: 1; 
+  animation-iteration-count: 1;
 }
 
 input[type="text"]:focus {
-  animation: none; 
+  animation: none;
 }
 
 @keyframes shake {
@@ -186,7 +181,6 @@ input[type="text"]:focus {
     transform: translateX(0);
   }
 }
-
 
 input[type="text"]:focus {
   outline: none;
@@ -208,8 +202,4 @@ footer {
   width: 100%;
   padding-bottom: 15px;
   opacity: 0.6;
-}
-
-.about {
-  text-align: center;
 }
