@@ -34,7 +34,7 @@ h2 {
   color: #fff;
 }
 
-/* Add minimal animation on hovering the headings div */
+
 #heading:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease;
@@ -59,7 +59,7 @@ input:checked + p {
   color: #777;
   opacity: 0.6;
   animation-name: fadeOut;
-  animation-duration: 2s; /* Adjust the duration as needed */
+  animation-duration: 2s; 
   animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
@@ -90,7 +90,7 @@ input[type="checkbox"] {
   position: relative;
 }
 
-/* Add animation on hovering the checkboxes */
+
 input[type="checkbox"]:hover {
   animation-name: pop;
   animation-duration: 0.3s;
@@ -165,11 +165,11 @@ input[type="text"]:hover {
   animation-name: shake;
   animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
-  animation-iteration-count: 1; /* Set the animation to run only once */
+  animation-iteration-count: 1; 
 }
 
 input[type="text"]:focus {
-  animation: none; /* Disable the animation when the input is focused */
+  animation: none; 
 }
 
 @keyframes shake {
