@@ -57,7 +57,7 @@ input:checked + p {
   color: #777;
   opacity: 0.6;
   animation-name: fadeOut;
-  animation-duration: 2s;
+  animation-duration: 2s; 
   animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
@@ -160,11 +160,11 @@ input[type="text"]:hover {
   animation-name: shake;
   animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
-  animation-iteration-count: 1;
+  animation-iteration-count: 1; 
 }
 
 input[type="text"]:focus {
-  animation: none;
+  animation: none; 
 }
 
 @keyframes shake {
@@ -202,4 +202,25 @@ footer {
   width: 100%;
   padding-bottom: 15px;
   opacity: 0.6;
+}
+
+.about {
+  text-align: center;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+  .box {
+    max-width: 100%;
+    margin: 20px;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+  }
+  
+  footer {
+    height: auto;
+    padding: 10px;
+  }
 }
